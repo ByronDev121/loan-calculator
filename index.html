@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> JavaScript Loan Calculator </title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <style src="./index.css"></style>
+</head>
+
+<body>
+
+    <div class="container my-5">
+
+        <h2 class="text-center">JavaScript Loan Calculator</h2>
+
+
+        <div class="row">
+
+
+            <div class="col-md-6">
+                <h4 class="text-center">Loan Data</h4>
+                <form>
+                    <div class="form-group">
+                        <label for="amount">Amount of the loan (R):</label>
+                        <input type="text" class="form-control" id="amount" onchange="calculate()">
+                    </div>
+                    <div class="form-group">
+                        <label for="apr">Annual loan interest rate (%):</label>
+                        <input type="text" class="form-control" id="apr" onchange="calculate()">
+                    </div>
+                    <div class="form-group">
+                        <label for="period">Period (years):</label>
+                        <input type="text" class="form-control" id="period" onchange="calculate()">
+                    </div>
+                    <div class="form-group">
+                        <label for="payment">Monthly payment:</label>
+                        <input type="text" class="form-control" disabled id="payment">
+                    </div>
+                    <div class="form-group">
+                        <label for="total">Total payment:</label>
+                        <input type="text" class="form-control" disabled id="total">
+                    </div>
+                    <div class="form-group">
+                        <label for="totalinterest">Total interest:</label>
+                        <input type="text" class="form-control" disabled id="totalinterest">
+                    </div>
+                </form>
+
+                <canvas id="graph" width="400" height="250"></canvas>
+            </div>
+
+
+
+            <div class="col-md-6">
+                <h4 class="text-center">Compound Interest Investment Data</h4>
+                <form>
+                    <div class="form-group">
+                        <label for="principal">Initial Contribution:</label>
+                        <input type="text" class="form-control" id="principal" onchange="calculate()">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="interest">Annual investment interest rate (%):</label>
+                        <input type="text" class="form-control" id="interest" onchange="calculate()">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="monthly">Monthly rental income:</label>
+                        <input type="text" class="form-control" id="monthly" onchange="calculate()">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="years">Period (years):</label>
+                        <input type="text" class="form-control" id="years" onchange="calculate()">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="totalFund">Total rental income invested:</label>
+                        <input type="text" class="form-control" disabled id="totalFund" onchange="calculate()">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="capitalGain">Total capital gain:</label>
+                        <input type="text" class="form-control" disabled id="capitalGain" onchange="calculate()">
+                    </div>
+
+                </form>
+
+                <canvas  id="compoundInterestGraph" width="400" height="250"></canvas>
+            </div>
+
+        </div>
+
+
+        <br>
+        <button class="mt-2 mb-3 btn btn-secondary" onclick="calculate()">Calculate</button>
+        <br>
+
+        <div>
+            <h4>Total capital after period:</h4>
+            <h3>R<span class="output" id="totalGain"></span></h5>
+        </div>
+
+    </div>
+
+    <script src='https://cdn.jsdelivr.net/npm/chart.js'></script>
+    <script src="./index.js"></script>
+</body>
+
+</html>
